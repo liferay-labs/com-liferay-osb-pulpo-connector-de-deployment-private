@@ -33,11 +33,11 @@
             "extraHosts": [
                   {
                     "hostname": "lcs-portal-pulpo",
-                    "ipAddress": "<LCS_PORTAL_IP>"
+                    "ipAddress": "54.243.198.186"
                   },
                   {
                     "hostname": "lcs-gateway-pulpo",
-                    "ipAddress": "<LCS_GATEWAY_IP>"
+                    "ipAddress": "54.235.215.13"
                   }
              ],
             "portMappings": [
