@@ -1,0 +1,4 @@
+.idea
+*.iml
+.elasticbeanstalk/logs
+.elasticbeanstalk/docker-compose.yml

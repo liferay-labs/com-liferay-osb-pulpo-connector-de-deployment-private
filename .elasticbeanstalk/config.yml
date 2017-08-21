@@ -1,0 +1,17 @@
+branch-defaults:
+  default:
+    environment: pulpo-connector-de-dev
+    group_suffix: null
+global:
+  application_name: pulpo-connector-de
+  branch: 7.0.x-private
+  default_ec2_keyname: aws-eb
+  default_platform: Multi-container Docker 1.12.6 (Generic)
+  default_region: eu-west-1
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  repository: null
+  sc: null
+  workspace_type: Application
