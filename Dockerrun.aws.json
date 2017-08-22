@@ -29,7 +29,7 @@
       "name": "pulpo-client-de",
       "image": "liferay/liferay-pulpo-client-de:20170821T125859Z",
       "essential": true,
-      "memory": 3072,
+      "memory": 4096,
       "extraHosts": [
         {
           "hostname": "lcs-portal-pulpo",
