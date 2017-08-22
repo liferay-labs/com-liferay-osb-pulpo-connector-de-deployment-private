@@ -27,7 +27,7 @@
   "containerDefinitions": [
     {
       "name": "pulpo-client-de",
-      "image": "liferay/liferay-pulpo-client-de:20170822T162540Z",
+      "image": "liferay/com-liferay-pulpo-connector-de-private:20170822T162540Z",
       "essential": true,
       "memory": 4096,
       "extraHosts": [
