@@ -28,6 +28,13 @@
     {
       "name": "pulpo-client-de",
       "image": "liferay/com-liferay-pulpo-connector-de-private:20170822T162540Z",
+      "mountPoints": [
+        {
+          "sourceVolume": "logsdir",
+          "containerPath": "/liferay/tomcat-8.0.32/logs",
+          "readOnly": true
+        }
+      ],
       "essential": true,
       "memory": 4096,
       "extraHosts": [
@@ -61,7 +68,7 @@
     },
     {
       "name": "pulpo-filebeat",
-      "image": "prameswar/filebeat:1.2",
+      "image": "docker.elastic.co/beats/filebeat:5.5.2",
       "mountPoints": [
         {
           "sourceVolume": "filebeatconfdir",
@@ -70,7 +77,7 @@
         },
         {
           "sourceVolume": "logsdir",
-          "containerPath": "/logs",
+          "containerPath": "/var/log",
           "readOnly": true
         },
         {
