@@ -6,28 +6,35 @@
   },
   "volumes": [
     {
-      "name": "logsdir",
+      "name": "awslogsdir",
       "host": {
-        "sourcePath": "/var/log/containers"
+        "sourcePath": "/var/log/"
+      }
+    },
+    {
+      "name": "connectorlogsdir",
+      "host": {
+        "sourcePath": "/var/log/containers/pulpo-connector-de"
       }
     },
     {
       "name": "filebeatconfdir",
       "host": {
-        "sourcePath": "/var/app/current/logstash/conf"
-      }
-    },
-    {
-      "name": "certsdir",
-      "host": {
-        "sourcePath": "/var/app/current/logstash/certs"
+        "sourcePath": "/var/app/current/filebeat/conf"
       }
     }
   ],
   "containerDefinitions": [
     {
-      "name": "pulpo-client-de",
+      "name": "pulpo-connector-de",
       "image": "liferay/com-liferay-pulpo-connector-de-private:20170830T102511Z",
+      "mountPoints": [
+        {
+          "sourceVolume": "connectorlogsdir",
+          "containerPath": "/liferay/tomcat-8.0.32/logs",
+          "readOnly": false
+        }
+      ],
       "essential": true,
       "memory": 4096,
       "extraHosts": [
@@ -61,26 +68,32 @@
     },
     {
       "name": "pulpo-filebeat",
-      "image": "prameswar/filebeat:1.2",
+      "image": "docker.elastic.co/beats/filebeat:5.5.2",
       "mountPoints": [
         {
           "sourceVolume": "filebeatconfdir",
-          "containerPath": "/etc/filebeat",
+          "containerPath": "/usr/share/filebeat/conf",
           "readOnly": true
         },
         {
-          "sourceVolume": "logsdir",
-          "containerPath": "/logs",
+          "sourceVolume": "awslogsdir",
+          "containerPath": "/var/log/aws",
           "readOnly": true
         },
         {
-          "sourceVolume": "certsdir",
-          "containerPath": "/etc/pki/tls/certs",
+          "sourceVolume": "connectorlogsdir",
+          "containerPath": "/var/log/aws/containers/pulpo-connector-de",
           "readOnly": true
         }
       ],
+      "command": [
+        "./filebeat",
+        "-c",
+        "/usr/share/filebeat/conf/filebeat.yml",
+        "-e"
+      ],
       "essential": true,
-      "memory": 512
+      "memory": 256
     }
   ]
 }
