@@ -890,12 +890,12 @@ output.elasticsearch:
 
 
 #----------------------------- Console output ---------------------------------
-#output.console:
+output.console:
   # Boolean flag to enable or disable the output module.
   enabled: true
 
   # Pretty print json event
-  pretty: true
+  #pretty: true
 
 #================================= Paths ======================================
 

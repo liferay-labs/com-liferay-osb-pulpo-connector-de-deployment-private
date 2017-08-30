@@ -16,12 +16,6 @@
       "host": {
         "sourcePath": "/var/app/current/filebeat/conf"
       }
-    },
-    {
-      "name": "certsdir",
-      "host": {
-        "sourcePath": "/var/app/current/logstash/certs"
-      }
     }
   ],
   "containerDefinitions": [
@@ -71,11 +65,6 @@
         {
           "sourceVolume": "awslogsdir",
           "containerPath": "/var/log/aws",
-          "readOnly": true
-        },
-        {
-          "sourceVolume": "certsdir",
-          "containerPath": "/etc/pki/tls/certs",
           "readOnly": true
         }
       ],
