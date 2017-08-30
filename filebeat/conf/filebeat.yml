@@ -153,6 +153,7 @@ filebeat.prospectors:
   paths:
     - /var/log/aws/*.log
     - /var/log/aws/containers/*.log
+    - /var/log/aws/containers/pulpo-connector-de/*.log
     #- c:\programdata\elasticsearch\logs\*
 
   # Configure the file encoding for reading files with international characters
@@ -166,7 +167,7 @@ filebeat.prospectors:
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
   # matching any regular expression from the list. The include_lines is called before
   # exclude_lines. By default, no lines are dropped.
-  #exclude_lines: ["^DBG"]
+  exclude_lines: ["^GC"]
 
   # Include lines. A list of regular expressions to match. It exports the lines that are
   # matching any regular expression from the list. The include_lines is called before

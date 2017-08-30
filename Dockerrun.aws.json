@@ -12,6 +12,12 @@
       }
     },
     {
+      "name": "connectorlogsdir",
+      "host": {
+        "sourcePath": "/var/log/containers/pulpo-connector-de"
+      }
+    },
+    {
       "name": "filebeatconfdir",
       "host": {
         "sourcePath": "/var/app/current/filebeat/conf"
@@ -22,6 +28,13 @@
     {
       "name": "pulpo-connector-de",
       "image": "liferay/com-liferay-pulpo-connector-de-private:20170830T102511Z",
+      "mountPoints": [
+        {
+          "sourceVolume": "connectorlogsdir",
+          "containerPath": "/liferay/tomcat-8.0.32/logs",
+          "readOnly": false
+        }
+      ],
       "essential": true,
       "memory": 4096,
       "extraHosts": [
@@ -65,6 +78,11 @@
         {
           "sourceVolume": "awslogsdir",
           "containerPath": "/var/log/aws",
+          "readOnly": true
+        },
+        {
+          "sourceVolume": "connectorlogsdir",
+          "containerPath": "/var/log/aws/containers/pulpo-connector-de",
           "readOnly": true
         }
       ],
