@@ -22,6 +22,12 @@
       "host": {
         "sourcePath": "/var/app/current/filebeat/conf"
       }
+    },
+    {
+      "name": "metricbeatconfdir",
+      "host": {
+        "sourcePath": "/var/app/current/metricbeat/conf"
+      }
     }
   ],
   "containerDefinitions": [
@@ -90,6 +96,25 @@
         "./filebeat",
         "-c",
         "/usr/share/filebeat/conf/filebeat.yml",
+        "-e"
+      ],
+      "essential": true,
+      "memory": 256
+    },
+    {
+      "name": "pulpo-metricbeat",
+      "image": "docker.elastic.co/beats/metricbeat:5.5.2",
+      "mountPoints": [
+        {
+          "sourceVolume": "metricbeatconfdir",
+          "containerPath": "/usr/share/metricbeat/conf",
+          "readOnly": true
+        }
+      ],
+      "command": [
+        "./metricbeat",
+        "-c",
+        "/usr/share/metricbeat/conf/metricbeat.yml",
         "-e"
       ],
       "essential": true,
