@@ -13,6 +13,19 @@ filebeat.prospectors:
   paths:
     - /var/log/aws/*.log
     - /var/log/aws/containers/*.log
+
+  multiline.pattern: '^%{TIME}'
+
+  multiline.negate: false
+
+  multiline.match: after
+
+  fields:
+    type: beanstalk
+
+- input_type: log
+
+  paths:
     - /var/log/aws/containers/pulpo-connector-de/*.log
 
   exclude_lines: ["^GC"]
@@ -22,6 +35,9 @@ filebeat.prospectors:
   multiline.negate: false
 
   multiline.match: after
+
+  fields:
+    type: pulpo
 
 #================================ General ======================================
 
