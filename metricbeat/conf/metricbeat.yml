@@ -3,6 +3,19 @@
 # This file is the configuration file for the metricbeat running inside this
 # beanstalk docker instance
 
+#============================  Config Reloading ===============================
+
+metricbeat.config.modules:
+
+  # Glob pattern for configuration reloading
+  path: ${path.config}/conf/modules.d/*.yml
+
+  # Period on which files under path should be checked for chagnes
+  reload.period: 10s
+
+  # Set to true to enable config reloading
+  reload.enabled: false
+
 #================================ Outputs ======================================
 
 #-------------------------- Elasticsearch output -------------------------------
