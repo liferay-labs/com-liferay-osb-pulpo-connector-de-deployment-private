@@ -67,6 +67,10 @@
           "containerPort": 8099
         },
         {
+          "hostPort": 8778,
+          "containerPort": 8778
+        },
+        {
           "hostPort": 11311,
           "containerPort": 11311
         }
