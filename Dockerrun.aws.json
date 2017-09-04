@@ -125,7 +125,7 @@
         "-e"
       ],
       "essential": true,
-      "memory": 256
+      "memory": 512
     }
   ]
 }
