@@ -115,6 +115,9 @@
           "readOnly": true
         }
       ],
+      "links": [
+        "pulpo-connector-de"
+      ],
       "command": [
         "./metricbeat",
         "-c",
