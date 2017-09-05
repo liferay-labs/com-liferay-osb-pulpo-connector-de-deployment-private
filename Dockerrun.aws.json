@@ -102,7 +102,7 @@
         "/usr/share/filebeat/conf/filebeat.yml",
         "-e"
       ],
-      "essential": true,
+      "essential": false,
       "memory": 256
     },
     {
@@ -124,7 +124,7 @@
         "/usr/share/metricbeat/conf/metricbeat.yml",
         "-e"
       ],
-      "essential": true,
+      "essential": false,
       "memory": 512
     }
   ]
