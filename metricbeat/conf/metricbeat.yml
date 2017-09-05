@@ -16,11 +16,19 @@ metricbeat.config.modules:
   # Set to true to enable config reloading
   reload.enabled: false
 
+#================================ General ======================================
+
+tags: '${PULPO_CONNECTOR_BEAT_TAGS}'
+
+fields:
+  env: '${PULPO_CONNECTOR_BEAT_ENV}'
+  service: '${PULPO_CONNECTOR_BEAT_SERVICE}'
+
 #================================ Outputs ======================================
 
 #-------------------------- Elasticsearch output -------------------------------
 output.elasticsearch:
-  hosts: ["search-pulpo-elasticsearch-log-dev-uk3rplqex6ciog3xy2jojrpsoa.eu-west-1.es.amazonaws.com:80"]
+  hosts: '${PULPO_CONNECTOR_BEAT_ES_HOSTS}'
 
 #================================ Logging ======================================
 logging.level: debug

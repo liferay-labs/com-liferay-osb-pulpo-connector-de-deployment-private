@@ -41,17 +41,17 @@ filebeat.prospectors:
 
 #================================ General ======================================
 
-tags: ["pulpo-connector-de-dev"]
+tags: '${PULPO_CONNECTOR_BEAT_TAGS}'
 
 fields:
-  env: dev
-  service: pulpo-connector-de
+  env: '${PULPO_CONNECTOR_BEAT_ENV}'
+  service: '${PULPO_CONNECTOR_BEAT_SERVICE}'
 
 #================================ Outputs ======================================
 
 #-------------------------- Elasticsearch output -------------------------------
 output.elasticsearch:
-  hosts: ["search-pulpo-elasticsearch-log-dev-uk3rplqex6ciog3xy2jojrpsoa.eu-west-1.es.amazonaws.com:80"]
+  hosts: '${PULPO_CONNECTOR_BEAT_ES_HOSTS}'
 
 #----------------------------- Console output ---------------------------------
 output.console:
