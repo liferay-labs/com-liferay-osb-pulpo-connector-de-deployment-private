@@ -79,6 +79,24 @@
     {
       "name": "pulpo-filebeat",
       "image": "docker.elastic.co/beats/filebeat:5.5.2",
+      "environment": [
+        {
+          "name": "PULPO_CONNECTOR_BEAT_TAGS",
+          "value": "PULPO_CONNECTOR_BEAT_TAGS"
+        },
+        {
+          "name": "PULPO_CONNECTOR_BEAT_ENV",
+          "value": "PULPO_CONNECTOR_BEAT_ENV"
+        },
+        {
+          "name": "PULPO_CONNECTOR_BEAT_SERVICE",
+          "value": "PULPO_CONNECTOR_BEAT_SERVICE"
+        },
+        {
+          "name": "PULPO_CONNECTOR_BEAT_ES_HOSTS",
+          "value": "PULPO_CONNECTOR_BEAT_ES_HOSTS"
+        }
+      ],
       "mountPoints": [
         {
           "sourceVolume": "filebeatconfdir",
@@ -108,6 +126,24 @@
     {
       "name": "pulpo-metricbeat",
       "image": "docker.elastic.co/beats/metricbeat:5.5.2",
+      "environment": [
+        {
+          "name": "PULPO_CONNECTOR_BEAT_TAGS",
+          "value": "PULPO_CONNECTOR_BEAT_TAGS"
+        },
+        {
+          "name": "PULPO_CONNECTOR_BEAT_ENV",
+          "value": "PULPO_CONNECTOR_BEAT_ENV"
+        },
+        {
+          "name": "PULPO_CONNECTOR_BEAT_SERVICE",
+          "value": "PULPO_CONNECTOR_BEAT_SERVICE"
+        },
+        {
+          "name": "PULPO_CONNECTOR_BEAT_ES_HOSTS",
+          "value": "PULPO_CONNECTOR_BEAT_ES_HOSTS"
+        }
+      ],
       "mountPoints": [
         {
           "sourceVolume": "metricbeatconfdir",
