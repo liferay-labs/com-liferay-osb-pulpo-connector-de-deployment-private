@@ -33,7 +33,7 @@
 	"containerDefinitions": [
 		{
 			"name": "pulpo-connector-de",
-			"image": "liferay/com-liferay-pulpo-connector-de-private:20171212T163802Z",
+			"image": "liferay/com-liferay-pulpo-connector-de-private:20171215T113531Z",
 			"mountPoints": [
 				{
 					"sourceVolume": "connectorlogsdir",
